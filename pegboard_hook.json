@@ -1,0 +1,37 @@
+{
+    "parameterSets": {
+        "screwdriver set holder": {
+            "base_offset": "0",
+            "base_thickness": "3",
+            "first_peg_lshape": "true",
+            "hole_depth": "5",
+            "hole_diameter": "6",
+            "hook_extension": "true",
+            "hook_extension_length": "15",
+            "hook_inner_diameter": "15",
+            "mesh_precision": "50",
+            "peg_diameter_tolerance": "10",
+            "peg_head_size_percentage": "120",
+            "peg_offset": "25",
+            "second_peg_lshape": "false"
+        },
+        "design default values": {
+            "base_offset": "0",
+            "base_thickness": "3",
+            "first_peg_lshape": "true",
+            "hole_depth": "5",
+            "hole_diameter": "6",
+            "hook_extension": "true",
+            "hook_extension_length": "5",
+            "hook_inner_diameter": "15",
+            "mesh_precision": "50",
+            "peg_diameter_tolerance": "10",
+            "peg_head_size_percentage": "110",
+            "peg_offset": "25",
+            "second_peg_lshape": "false"
+        }
+    },
+    "fileFormatVersion": "1",
+    "parameterSets": "",
+    "parameterSets": ""
+}

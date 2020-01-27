@@ -126,14 +126,23 @@ module create_u_hook() {
     inner_diameter = hook_inner_diameter;
     outer_diameter = inner_diameter + base_thickness*2;
     hook_width = peg_diameter;
-    arc_center = [base_length,-outer_diameter/2,-hook_width/2];
-    diff_threshold = 0.1;
+    
+    create_arc([base_length,0,0], hook_width, inner_diameter, outer_diameter);    
+    if (hook_extension) {
+        translate([base_length-hook_extension_length,-outer_diameter,-hook_width/2])
+            cube([hook_extension_length,base_thickness,hook_width]);
+    }
+}
+
+module create_arc(begin_pos = [0,0,0], width, inner_diameter, outer_diameter) {
+    arc_center = begin_pos + [0,-outer_diameter/2,-width/2];
     rotation = [0,0,90]; // For fitting of a hook with base
-    difference(){
+    diff_threshold = 0.1;
+    difference() {
         translate(arc_center)
         rotate(rotation)
             cylinder(
-                h = hook_width,
+                h = width,
                 d = outer_diameter,
                 $fn = mesh_precision
             );
@@ -141,7 +150,7 @@ module create_u_hook() {
         translate(arc_center + [0,0,-diff_threshold/2])
         rotate(rotation)
             cylinder(
-                h = hook_width + diff_threshold,
+                h = width + diff_threshold,
                 d = inner_diameter,
                 $fn = mesh_precision
             );
@@ -154,12 +163,7 @@ module create_u_hook() {
             cube([
                 outer_diameter / 2 + diff_threshold,
                 outer_diameter + diff_threshold * 2,
-                hook_width + diff_threshold * 2]
+                width + diff_threshold * 2]
             );
-    }
-    
-    if (hook_extension) {
-        translate([base_length-hook_extension_length,-outer_diameter,-hook_width/2])
-            cube([hook_extension_length,base_thickness,hook_width]);
     }
 }
