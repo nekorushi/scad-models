@@ -45,7 +45,7 @@ hook_extension_length = 5; // [1:50]
 /* [Others] */
 
 // Output mesh precision (default: 50)
-mesh_precision = 50; // [3:200]
+mesh_precision = 100; // [3:200]
 
 // Helper variables
 peg_diameter = hole_diameter * (100 - peg_diameter_tolerance)/100;
@@ -134,14 +134,16 @@ module create_u_hook() {
         rotate(rotation)
             cylinder(
                 h = hook_width,
-                d = outer_diameter
+                d = outer_diameter,
+                $fn = mesh_precision
             );
         
         translate(arc_center + [0,0,-diff_threshold/2])
         rotate(rotation)
             cylinder(
                 h = hook_width + diff_threshold,
-                d = inner_diameter
+                d = inner_diameter,
+                $fn = mesh_precision
             );
         
         translate(arc_center + [
