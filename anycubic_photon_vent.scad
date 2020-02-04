@@ -29,7 +29,7 @@ plate_rounded_corners = true;
 vent_base_diameter = 65; // [20:150]
 
 // Vent base length
-vent_base_length = 10; // [5:150]
+vent_base_length = 10; // [0:150]
 
 // Vent tip thickness
 vent_tip_thickness = 2; // [1:10]
