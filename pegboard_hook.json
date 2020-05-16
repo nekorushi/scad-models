@@ -15,17 +15,19 @@
             "peg_offset": "25",
             "second_peg_lshape": "false"
         },
-        "design default values": {
+        "NoName Plastic Board": {
             "base_offset": "0",
             "base_thickness": "3",
-            "first_peg_lshape": "true",
+            "first_peg_lshape": "false",
             "hole_depth": "5",
-            "hole_diameter": "6",
+            "hole_diameter": "5",
             "hook_extension": "true",
             "hook_extension_length": "5",
             "hook_inner_diameter": "15",
-            "mesh_precision": "50",
+            "mesh_precision": "100",
             "peg_diameter_tolerance": "10",
+            "peg_head_cutout_depth": "7",
+            "peg_head_cutout_width": "1",
             "peg_head_size_percentage": "110",
             "peg_offset": "25",
             "second_peg_lshape": "false"

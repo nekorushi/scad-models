@@ -14,6 +14,15 @@ peg_offset = 25; // [20:40]
 // How much bigger is peg head compared to peg diameter (default: 110%)
 peg_head_size_percentage = 120; // [100:150]
 
+// Should first peg be L-shaped (default: true)
+peg_head_cutout = true;
+
+// How wide is cutout in a peg (default: 2mm)
+peg_head_cutout_width = 2; // [0:3]
+
+// How deep is cutout in a peg (default: 6mm)
+peg_head_cutout_depth = 6; // [0:10]
+
 // How much peg diameter should be reduced in relation to hole diameter (default: 20%)
 peg_diameter_tolerance = 10; // [0:50]
 
@@ -94,6 +103,14 @@ module create_peg(position = [0,0,0], lshape = true) {
             } else {
                 create_peg_head(position + [0,0,sphere_center_position]);
             }
+        }
+        if(peg_head_cutout) {
+            translate(position + [
+                -peg_head_cutout_width/2,
+                -peg_sphere_size/2,
+                hole_depth + peg_sphere_size - peg_head_cutout_depth
+            ])
+                cube([peg_head_cutout_width,peg_sphere_size,peg_head_cutout_depth]);
         }
     }
 }
